@@ -1,23 +1,20 @@
-## 용어 정리
-
-## 목차
-
-- [Introduction](#introduction)
-  - [📕 Domain-Driven Design (DDD) : 도메인 주도설계란?](#-domain-driven-design-ddd--도메인-주도설계란)
-    - [📎 Domain : 도메인](#-domain--도메인)
-    - [📎 도메인 지식](#-도메인-지식)
-    - [📎 Ubiquitous Language : 유비쿼터스 랭귀지](#-ubiquitous-language--유비쿼터스-랭귀지)
-    - [📎 Model-Driven Design : 모델 주도 설계](#-model-driven-design--모델-주도-설계)
-    - [📎 Domain Model : 도메인 모델](#-domain-model--도메인-모델)
-    - [📎 Bounded Context](#-bounded-context)
-    - [📎 Strategic Design : 전략적 설계 (개념 설계)](#-strategic-design--전략적-설계-개념-설계)
-    - [📎 Tactical Design : 전술적 설계 (구체적 설계)](#-tactical-design--전술적-설계-구체적-설계)
-
-# Introduction
+## 용어 정리 Introduction
 
 클린 아키텍처를 공부하면서 이해하기 어려운 용어들이 몇가지 많았다. 어디서 들어보긴 했으나 정확하게 알지 못했던 것이나 처음 들어본 용어들을 아래에 정리해보았다.
 
-## 📕 Domain-Driven Design (DDD) : 도메인 주도설계란?
+## 목차
+
+- [📕 Domain-Driven Design (DDD) : 도메인 주도설계](#-domain-driven-design-ddd--도메인-주도설계)
+  - [📎 Domain : 도메인](#-domain--도메인)
+  - [📎 도메인 지식](#-도메인-지식)
+  - [📎 Ubiquitous Language : 유비쿼터스 랭귀지](#-ubiquitous-language--유비쿼터스-랭귀지)
+  - [📎 Model-Driven Design : 모델 주도 설계](#-model-driven-design--모델-주도-설계)
+  - [📎 Domain Model : 도메인 모델](#-domain-model--도메인-모델)
+  - [📎 Bounded Context](#-bounded-context)
+  - [📎 Strategic Design : 전략적 설계 (개념 설계)](#-strategic-design--전략적-설계-개념-설계)
+  - [📎 Tactical Design : 전술적 설계 (구체적 설계)](#-tactical-design--전술적-설계-구체적-설계)
+
+# 📕 Domain-Driven Design (DDD) : 도메인 주도설계
 
 - 도메인 내부에서 문제 해결이 가능한 형태로 도메인을 모델링하는 기법
 - 복잡한 소프트웨어는 기숧 자체의 복잡성 보다는 도메인 자체의 복잡성에 기인
@@ -26,7 +23,7 @@
 
 하나의 도메인 모델에 대한 이해관계가 팀마다 다름을 인정하고, 각 팀에 적합한 하위 도메인(e.g. 주문, 배달, 결제 등)을 설정하고, 해당 하위 도메인에 대한 맥락을 알고 있는 사람이 따라야할 비즈니스 규칙에 대한 경계를 설정하는 설계 방식이다.
 
-### 📎 Domain : 도메인
+## 📎 Domain : 도메인
 
 - 도메인은 소프트웨어로 해결하고자 하는 **문제 영역**을 뜻한다.  
 
@@ -37,13 +34,13 @@
 한 도메인은 다시 하위 도메인으로 나눌 수 있다. 각 하위 도메인은 각자의 서비스에 맞는 기능을 제공하고 한 하위 도메인이 다른 하위 도메인과 연동하여 완전한 기능을 제공한다.
 `'온라인 서점'의 하위 도메인 : 카탈로그, 회원, 결제, 배송, 정산 등`
 
-### 📎 도메인 지식
+## 📎 도메인 지식
 
 - 요구사항을 올바르게 이해하기 위한 문제 해결을 위한 모든 지식들
 
 개발자는 요구사항을 분석하고 설계하여 코드를 작성하며 테스트하고 배포하게 되는데, 이에 앞서 요구사항을 올바르게 이해하는 것이 중요하다. 따라서 개발자는 도메인 지식을 갖추기 위해서 개발자가 도메인 전문가와 직접 소통하여 왜 이런 기능을 요구하는지 또는 실제로 원하는게 무엇인지 생각하고 전문가와 대화를 통해 진짜로 원하는 것을 찾아야한다.
 
-### 📎 Ubiquitous Language : 유비쿼터스 랭귀지
+## 📎 Ubiquitous Language : 유비쿼터스 랭귀지
 
 - 도메인에 대한 어휘를 이해관계자(도메인 전문가, 개발자, 분석가 등)등리 **공통적으로 의미를 이해할 수 있도록 정의하는 것**
 
@@ -66,12 +63,12 @@ public enum OrderState {
 이렇게 도메인 주도 설계에서 언어의 중요함을 강조하기 위해 유비쿼터스 언어라는 용어를 많이 사용하게 된다. 전문가, 관계자, 개발자가 도메인과 관련된 공통의 언어를 만들고 이를 대화, 문서, 도메인 모델, 코드, 테스트 등 모든 곳에서 같은 용어를 사용한다. 이렇게 하면 소통 과정에서 발생하는 용어의 모호함을 줄일 수 있고 개발자는 도메인과 코드 사이에서 불필요한 해석 과정을 줄일 수 있다.
 
 
-### 📎 Model-Driven Design : 모델 주도 설계
+## 📎 Model-Driven Design : 모델 주도 설계
 
 - 분석과 설계를 나누지 않으며 분석/설계/구현의 모든 단계를 관통하는 하나의 모델을 유지하는 것
 - 모델링을 통해 가져올 수 있는 통찰을 코드에도 적용 (모델 == 코드)
 
-### 📎 Domain Model : 도메인 모델
+## 📎 Domain Model : 도메인 모델
 
 - 도메인에 대한 구체적인 설계, 고메인을 개념적으로 표현한 것
 - 개념들의 관계를 표현한 모델
@@ -85,13 +82,13 @@ public enum OrderState {
 
 하지만 도메인 모델을 객체로만 모델링 할 수 있는 것은 아니다. 도메인을 이해하는데 도움이 된다면 표현 방식이 무엇인지는 중요하지 않다.
 
-### 📎 Bounded Context
+## 📎 Bounded Context
 
 Bounded Context는 DDD의 중심 패턴이다. 대규모 모델과 팀을 다루는 것이 DDD의 전략적 설계 섹션의 초점이다. DDD는 큰 모델을 서로 다른 Bounded Context로 나누고 상호 관계를 명시하여 처리한다.
 
 ![](https://velog.velcdn.com/cloudflare/cks8483/14c69b2a-4e57-4366-93ea-d423c1e1b6b9/image.png)
 
-### 📎 Strategic Design : 전략적 설계 (개념 설계)
+## 📎 Strategic Design : 전략적 설계 (개념 설계)
 
 - 복잡한 도메인의 맥락(Context) 결계를 명확히 정의하는 과정
 - Bounded Context 안의 도메인 모델에서 보편 언어를 개발하는 방법
@@ -101,7 +98,7 @@ Bounded Context는 DDD의 중심 패턴이다. 대규모 모델과 팀을 다루
   - 경계를 구체화
   - 이벤트 스토밍 : Event와 Brain Storming의 함성어로 Domain Expert와 개발 전문가가 함께 모여 워크샵 형태로 진행되는 방법론으로, 시스템에서 발생하는 이벤트를 중심(Event-First)으로 분석하는 기법으로 특히, Non-Blocking, Event-driven한 MSA 기반 시스템을 분석해서 개발까지 필요한 도메인에 대한 빠른 이해를 도모하는데 유리하다.
 
-### 📎 Tactical Design : 전술적 설계 (구체적 설계)
+## 📎 Tactical Design : 전술적 설계 (구체적 설계)
 
 - 전략적 설계에서 더 상세한 부분(Bounded Context 내부)을 모델링
 - Model-Driven Design 
