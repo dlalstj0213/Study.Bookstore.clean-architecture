@@ -7,5 +7,7 @@ import java.util.List;
 
 public interface SearchBookQuery {
 
-    List<Book> getBooksFromBookStore(BookstoreId bookStoreId);
+    List<Book> getBooks(SearchBookCommand searchBookCommand);
+
+    List<Book> getBooksFromBookStore(SearchBookCommand searchBookCommand);
 }
